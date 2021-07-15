@@ -131,3 +131,25 @@ it("calculate based on multiple users inputs", async () => {
     ).value
   ).toBe("5.8");
 });
+
+it("can clear results", async () => {
+  render(<Calculator />);
+  const one = screen.getByText("1");
+  const two = screen.getByText("2");
+  const plus = screen.getByText("+");
+  const clear = screen.getByText("C");
+  fireEvent.click(one);
+  fireEvent.click(plus);
+  fireEvent.click(two);
+
+  fireEvent.click(clear);
+
+  const result = await screen.findByPlaceholderText("calculate");
+  expect(
+    (
+      result as HTMLElement & {
+        value: string;
+      }
+    ).value
+  ).toBe("");
+});
