@@ -11,3 +11,9 @@ describe("<Calculator />", () => {
     });
   });
 });
+
+it("shows 4 rows", () => {
+  render(<Calculator />);
+  const rows = screen.getAllByRole("row");
+  expect(rows).toHaveLength(4);
+});
