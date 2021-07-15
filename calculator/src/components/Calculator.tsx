@@ -18,6 +18,7 @@ const Calculator = () => {
     const results = calculateExpression(value);
     setValue(results);
   };
+  const clearValue = () => setValue("");
   return (
     <div className="calculator">
       <h1>Calculator</h1>
@@ -32,7 +33,7 @@ const Calculator = () => {
           return (
             <Fragment key={row.toString()}>
               <div role="row">
-                {i === 3 && <button>{clearSign}</button>}
+                {i === 3 && <button onClick={clearValue}>{clearSign}</button>}
                 {row.map((n) => (
                   <button
                     onClick={() => setValue(value.concat(n.toString()))}
