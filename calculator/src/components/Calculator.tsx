@@ -1,5 +1,5 @@
 const rows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]];
-
+const calcOperators = ["+", "-", "×", "÷"];
 const Calculator = () => {
   return (
     <div className="calculator">
@@ -14,6 +14,9 @@ const Calculator = () => {
             </div>
           );
         })}
+        {calcOperators.map((operator) => (
+          <button key={operator}>{operator.toString()}</button>
+        ))}
       </div>
     </div>
   );

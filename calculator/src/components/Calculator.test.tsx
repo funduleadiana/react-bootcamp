@@ -20,7 +20,8 @@ it("shows 4 rows", () => {
 
 it("shows calculation operators", () => {
   render(<Calculator />);
-  const calcOperators = ["+", "-", "x", "÷"];
+  const calcOperators = ["+", "-", "×", "÷"];
+
   calcOperators.forEach((operator) => {
     expect(screen.getByText(operator.toString())).toBeInTheDocument();
   });
