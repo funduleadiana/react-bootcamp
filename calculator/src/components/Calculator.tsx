@@ -5,7 +5,7 @@ const calcOperators = ["+", "-", "×", "÷"];
 const equalSign = "=";
 const clearSign = "C";
 
-const calculateExpression = (expression: string) => {
+export const calculateExpression = (expression: string) => {
   const mulRegex = /×/g;
   const divRegex = /÷/g;
   const toEvaluate = expression.replace(mulRegex, "*").replace(divRegex, "/");
