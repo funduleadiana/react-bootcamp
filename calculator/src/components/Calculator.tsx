@@ -4,17 +4,26 @@ const rows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]];
 const calcOperators = ["+", "-", "×", "÷"];
 const equalSign = "=";
 const clearSign = "C";
+const getLastChar = (str: string) => (str.length ? str[str.length - 1] : "");
+const isNumber = (str: string) => !isNaN(Number(str));
 
 export const calculateExpression = (expression: string) => {
+  if (!expression || expression.length === 0) {
+    return;
+  }
   const mulRegex = /×/g;
   const divRegex = /÷/g;
   const divideByZero = /\/0/g;
-  const toEvaluate = expression.replace(mulRegex, "*").replace(divRegex, "/");
+  let toEvaluate = expression.replace(mulRegex, "*").replace(divRegex, "/");
   try {
     if (divideByZero.test(toEvaluate)) {
       throw new Error("Can not divide by 0!");
     }
+    const lastCharaterIsNumber = isNumber(getLastChar(toEvaluate));
 
+    if (!lastCharaterIsNumber) {
+      toEvaluate = toEvaluate.slice(0, -1);
+    }
     // todo - refactor eval later
     const result = eval(toEvaluate);
 
