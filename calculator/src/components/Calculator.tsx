@@ -8,9 +8,21 @@ const clearSign = "C";
 export const calculateExpression = (expression: string) => {
   const mulRegex = /×/g;
   const divRegex = /÷/g;
+  const divideByZero = /\/0/g;
   const toEvaluate = expression.replace(mulRegex, "*").replace(divRegex, "/");
-  const result = eval(toEvaluate);
-  return result;
+  try {
+    if (divideByZero.test(toEvaluate)) {
+      throw new Error("Can not divide by 0!");
+    }
+
+    // todo - refactor eval later
+    const result = eval(toEvaluate);
+
+    return result;
+  } catch (err) {
+    console.error(err);
+    return undefined;
+  }
 };
 const Calculator = () => {
   const [value, setValue] = useState("");
