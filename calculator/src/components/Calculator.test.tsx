@@ -26,3 +26,15 @@ it("shows calculation operators", () => {
     expect(screen.getByText(operator.toString())).toBeInTheDocument();
   });
 });
+
+it("renders equal", () => {
+  render(<Calculator />);
+  const equalSign = "=";
+  expect(screen.getByText(equalSign)).toBeInTheDocument();
+});
+
+it("renders clear sign", () => {
+  render(<Calculator />);
+  const clearSign = "C";
+  expect(screen.getByText(clearSign)).toBeInTheDocument();
+});
