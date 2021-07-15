@@ -38,3 +38,8 @@ it("renders clear sign", () => {
   const clearSign = "C";
   expect(screen.getByText(clearSign)).toBeInTheDocument();
 });
+
+it("renders an input", () => {
+  render(<Calculator />);
+  expect(screen.getByPlaceholderText("calculate")).toBeDisabled();
+});
