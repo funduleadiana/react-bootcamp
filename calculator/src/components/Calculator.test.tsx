@@ -17,3 +17,11 @@ it("shows 4 rows", () => {
   const rows = screen.getAllByRole("row");
   expect(rows).toHaveLength(4);
 });
+
+it("shows calculation operators", () => {
+  render(<Calculator />);
+  const calcOperators = ["+", "-", "x", "÷"];
+  calcOperators.forEach((operator) => {
+    expect(screen.getByText(operator.toString())).toBeInTheDocument();
+  });
+});
