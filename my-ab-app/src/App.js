@@ -30,10 +30,10 @@ function App() {
           <button>Learn more</button>
         </Variant>
         <Variant name="variant1">
-          <button className="variant-1">Learn more</button>
+          <button className="variant1">Learn more</button>
         </Variant>
         <Variant name="variant2">
-          <button className="variant-2">Learn more</button>
+          <button className="variant2">Learn more</button>
         </Variant>
       </Experiment>
     </div>

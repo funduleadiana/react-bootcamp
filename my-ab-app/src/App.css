@@ -11,3 +11,22 @@ button {
   border-radius: 3px;
   border: none;
 }
+
+button.variant1 {
+  background-color: rgba(32, 189, 40, 0.4);
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 2px 3px rgba(32, 189, 40, 0.8);
+}
+
+button.variant2 {
+  background-image: linear-gradient(
+    to right,
+    rgba(30, 131, 35, 0.4),
+    rgba(255, 238, 7, 0.6)
+  );
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+}
