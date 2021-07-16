@@ -1,4 +1,6 @@
 import { Fragment, useState } from "react";
+import { evaluate } from "mathjs";
+import "./Calculator.css";
 
 const rows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]];
 const calcOperators = ["+", "-", "×", "÷"];
@@ -19,13 +21,13 @@ export const calculateExpression = (expression: string) => {
     if (divideByZero.test(toEvaluate)) {
       throw new Error("Can not divide by 0!");
     }
-    const lastCharaterIsNumber = isNumber(getLastChar(toEvaluate));
+    const lastCharacterIsNumber = isNumber(getLastChar(toEvaluate));
 
-    if (!lastCharaterIsNumber) {
+    if (!lastCharacterIsNumber) {
       toEvaluate = toEvaluate.slice(0, -1);
     }
-    // todo - refactor eval later
-    const result = eval(toEvaluate);
+
+    const result = evaluate(toEvaluate);
 
     return result;
   } catch (err) {
@@ -49,33 +51,37 @@ const Calculator = () => {
         placeholder="calculate"
         disabled
       />
-      <div role="grid">
-        {rows.map((row, i) => {
-          return (
-            <Fragment key={row.toString()}>
-              <div role="row">
-                {i === 3 && <button onClick={clearValue}>{clearSign}</button>}
-                {row.map((n) => (
-                  <button
-                    onClick={() => setValue(value.concat(n.toString()))}
-                    key={n}
-                  >
-                    {n}
-                  </button>
-                ))}
-                {i === 3 && <button onClick={calculate}>{equalSign}</button>}
-              </div>
-            </Fragment>
-          );
-        })}
-        {calcOperators.map((operator) => (
-          <button
-            onClick={() => setValue(value.concat(operator))}
-            key={operator}
-          >
-            {operator.toString()}
-          </button>
-        ))}
+      <div className="calculator-btn-container">
+        <div role="grid">
+          {rows.map((row, i) => {
+            return (
+              <Fragment key={row.toString()}>
+                <div role="row">
+                  {i === 3 && <button onClick={clearValue}>{clearSign}</button>}
+                  {row.map((n) => (
+                    <button
+                      onClick={() => setValue(value.concat(n.toString()))}
+                      key={n}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                  {i === 3 && <button onClick={calculate}>{equalSign}</button>}
+                </div>
+              </Fragment>
+            );
+          })}
+        </div>
+        <div className="calculator-operators">
+          {calcOperators.map((operator) => (
+            <button
+              onClick={() => setValue(value.concat(operator))}
+              key={operator}
+            >
+              {operator.toString()}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
