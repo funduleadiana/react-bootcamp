@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+.header {
+  font-size: 24px;
+}
+
+button {
+  background-color: pink;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+}
