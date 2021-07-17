@@ -6,7 +6,7 @@ import {
 } from "@marvelapp/react-ab-test";
 import "./App.css";
 import Experiment from "@marvelapp/react-ab-test/lib/Experiment";
-import mixpanel from "@marvelapp/react-ab-test/lib/helpers/mixpanel";
+import Mixpanel from "mixpanel";
 import React from "react";
 
 experimentDebugger.enable();
@@ -15,6 +15,8 @@ emitter.defineVariants(
   ["control", "variant1", "variant2"],
   [34, 33, 33]
 );
+
+// var mixpanel = Mixpanel.init("cbb4129ee5da4bf960ac1b4da0418ca1");
 
 class App extends React.Component {
   buttonClick(e) {
