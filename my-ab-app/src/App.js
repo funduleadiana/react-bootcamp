@@ -66,8 +66,8 @@ emitter.addWinListener((experimentName, variantName) => {
   console.log(
     `Variant ${variantName} from Experiment ${experimentName} was clicked`
   );
-  mixpanel.track(experimentName, {
-    name: experimentName,
-    variant: variantName,
-  });
+  // mixpanel.track(experimentName, {
+  //   name: experimentName,
+  //   variant: variantName,
+  // });
 });
