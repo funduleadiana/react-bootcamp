@@ -15,3 +15,15 @@ const MoviePage = ({ title, releaseDate, image, vote }) => {
 };
 
 export default MoviePage;
+
+/**
+ * {movies.map((movie) => (
+          <MoviePage
+            key={movie.id}
+            title={movie.title}
+            releaseDate={movie.release_date}
+            image={movie.poster_path}
+            vote={movie.vote_average}
+          />
+        ))}
+ */
