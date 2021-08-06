@@ -32,15 +32,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        {movies.map((movie) => (
-          <MoviePage
-            key={movie.id}
-            title={movie.title}
-            releaseDate={movie.release_date}
-            image={movie.poster_path}
-            vote={movie.vote_average}
-          />
-        ))}
       </div>
     );
   }
