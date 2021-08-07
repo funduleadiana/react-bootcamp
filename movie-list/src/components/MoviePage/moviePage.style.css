@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+.card-container {
+  display: block;
+  max-height: 500px;
+  max-width: 217px;
+  border: 3px solid rgb(253, 174, 174);
+  background-color: #ec9e9e73;
+  border-radius: 13px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.589);
+  transition: all 0.2s ease-in;
+}
+
+.text-container {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: black;
+  letter-spacing: 2px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.card-container:hover {
+  transition: all 0.2s ease-in;
+  top: -4px;
+  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.589);
+
+  transform: scale(1.2);
+}
+
+.movie-poster {
+  height: 65%;
+  width: auto;
+  margin-top: 0;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+/* .text-container {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  opacity: 0;
+} */
+
+/* .text-container:hover {
+  transition: all 0.2s ease;
+  opacity: 1;
+} */

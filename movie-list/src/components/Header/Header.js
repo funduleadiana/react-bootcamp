@@ -4,7 +4,7 @@ import "./header.styles.css";
 const Header = () => {
   return (
     <div className="header">
-      <div className="container">
+      <div className="header-container">
         <button className="button-menu">home</button>
       </div>
     </div>
