@@ -13,6 +13,7 @@ class App extends React.Component {
     super();
     this.state = {
       movies: [],
+      searchWord: "",
     };
   }
 
@@ -27,13 +28,29 @@ class App extends React.Component {
       console.error(err);
     }
   }
+  onChange = (ev) => {
+    this.setState({ searchWord: ev.target.value });
+  };
+  onSubmitSearch = (e) => {
+    // e.preventDefault();
+
+    const filteredMovies = this.state.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(this.state.searchWord.toLowerCase())
+    );
+    console.log(this.state.movies);
+    this.setState({ movies: filteredMovies });
+  };
   render() {
-    const { movies } = this.state;
-    console.log(movies);
+    const { movies, searchWord } = this.state;
+
     return (
       <div className="App">
         <Header />
-        <SearchBar />
+        <SearchBar
+          onSubmit={this.onSubmitSearch}
+          onChange={this.onChange}
+          value={searchWord}
+        />
         <MovieList movies={movies} />
       </div>
     );
