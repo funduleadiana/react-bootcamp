@@ -1,0 +1,31 @@
+.search-bar-container {
+  margin: 30px auto;
+}
+.search-field {
+  height: 20px;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.search-field:focus {
+  transition: all 0.2s ease-in;
+  outline: none;
+  width: 200px;
+}
+
+.search-button {
+  height: 34px;
+  width: 80px;
+  background-color: rgb(94, 34, 32);
+  color: lightgrey;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  color: white;
+}
+.search-button:active {
+  box-shadow: 0px 3px rgb(71, 34, 34);
+}
